@@ -1,0 +1,9 @@
+CC=g++
+LD=g++
+LDFLAGS = 
+LIBS= 
+CXXFLAGS = -g -Wall -Werror -fPIC $(OPTI) $(DEPS)
+CFLAGS = -g -Wall -Werror -fPIC $(OPTI) $(DEPS)
+DCXXFLAGS = -g -fPIC $(OPTI) $(DEPS) 
+OPTI=
+DEPS= #-DNDEBUG

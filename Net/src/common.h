@@ -1,0 +1,9 @@
+#ifndef __COMMON__H
+#define __COMMON__H
+
+enum ENETWORKTRANSPORT {
+	TCP_TRANSPORT,
+	UDP_TRANSPORT
+};
+
+#endif

@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>libNet</ProjectName>
+    <ProjectGuid>{A2EA7EBF-2DD2-4F7E-83B9-819D2F98EC1A}</ProjectGuid>
+    <RootNamespace>Net</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v100</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v100</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectName)D</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\ikcp;..\inc;..\..\ThreadPool\inc;..\..\V2_Log\inc;..\..\winPthread\inc;..\..\XmlConfParse\inc;..\..\libevent\inc;..\..\Xml\inc;..\..\Expat\inc;..\..\..\Inc;..\..\udt4\src;..\..\SctpDrv\inc;..\..\udx\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;WIN32_LEAN_AND_MEAN;NETWORK_IO_EXPORT;MUTEX_EXPORT;NET_FILTER_EXPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>libevent.lib;libevent_core.lib;libevent_extras.lib;pthreadVC.lib;threadpoolD.lib;libjudoD.lib;expat_staticD.lib;logD.lib;Ws2_32.lib;FastUdx.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName)D.dll</OutputFile>
+      <AdditionalLibraryDirectories>..\..\lib;..\..\libevent\lib;..\..\winPthread\lib;..\..\udt4\src\lib;..\..\SctpDrv\lib;..\..\udx\lib\win;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy $(TargetDir)$(TargetName).dll ..\..\lib\
+copy $(TargetDir)$(TargetName).pdb ..\..\lib\
+copy $(TargetDir)$(TargetName).lib ..\..\lib\
+copy $(TargetDir)$(TargetName).dll ..\..\..\Bin
+copy $(TargetDir)$(TargetName).pdb ..\..\..\Bin
+copy $(TargetDir)$(TargetName).lib ..\..\..\Bin
+copy $(TargetDir)$(TargetName).dll ..\..\..\ServBin
+copy $(TargetDir)$(TargetName).pdb ..\..\..\ServBin
+copy $(TargetDir)$(TargetName).lib ..\..\..\ServBin
+copy $(TargetDir)$(TargetName).dll ..\..\..\IPCamera\Bin
+copy $(TargetDir)$(TargetName).pdb ..\..\..\IPCamera\Bin</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;WIN32_LEAN_AND_MEAN;NETWORK_IO_EXPORT;MUTEX_EXPORT;NET_FILTER_EXPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <AdditionalIncludeDirectories>..\..\ikcp;..\inc;..\..\ThreadPool\inc;..\..\V2_Log\inc;..\..\winPthread\inc;..\..\XmlConfParse\inc;..\..\libevent\inc;..\..\Xml\inc;..\..\Expat\inc;..\..\..\Inc;..\..\udt4\src;..\..\SctpDrv\inc;..\..\udx\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>libevent.lib;libevent_core.lib;libevent_extras.lib;pthreadVC.lib;threadpool.lib;libjudo.lib;expat_static.lib;log.lib;Ws2_32.lib;FastUdx.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\lib;..\..\libevent\lib;..\..\winPthread\lib;..\..\udt4\src\lib;..\..\SctpDrv\lib;..\..\udx\lib\win;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <OutputFile>$(OutDir)$(ProjectName)$(TargetExt)</OutputFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy $(TargetDir)$(TargetName).dll ..\..\lib\
+copy $(TargetDir)$(TargetName).lib ..\..\lib\
+copy $(TargetDir)$(TargetName).pdb ..\..\lib\
+copy $(TargetDir)$(TargetName).dll ..\..\..\Bin_Release
+copy $(TargetDir)$(TargetName).pdb ..\..\..\Bin_Release
+copy $(TargetDir)$(TargetName).dll ..\..\..\ServBin
+copy $(TargetDir)$(TargetName).pdb ..\..\..\ServBin
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\ikcp\ikcp.c" />
+    <ClCompile Include="AppModeThread.cpp" />
+    <ClCompile Include="BaseIOThreadWin.cpp" />
+    <ClCompile Include="KCPClient.cpp" />
+    <ClCompile Include="kcpinc.cpp" />
+    <ClCompile Include="KCPReadThread.cpp" />
+    <ClCompile Include="KCPServer.cpp" />
+    <ClCompile Include="KCPThread.cpp" />
+    <ClCompile Include="KCPWriteThread.cpp" />
+    <ClCompile Include="TCPReadThread.cpp" />
+    <ClCompile Include="TCPWriteThread.cpp" />
+    <ClCompile Include="UdxTcpSession.cpp" />
+    <ClCompile Include="IOService.cpp" />
+    <ClCompile Include="IoUtils.cpp" />
+    <ClCompile Include="Mutex.cpp" />
+    <ClCompile Include="networkio.cpp" />
+    <ClCompile Include="Session.cpp" />
+    <ClCompile Include="UdxTcpHandler.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\ikcp\ikcp.h" />
+    <ClInclude Include="AppModeThread.h" />
+    <ClInclude Include="BaseIOThreadWin.h" />
+    <ClInclude Include="common.h" />
+    <ClInclude Include="IBaseIOThread.h" />
+    <ClInclude Include="IOService.h" />
+    <ClInclude Include="IoUtils.h" />
+    <ClInclude Include="..\inc\Mutex.h" />
+    <ClInclude Include="..\inc\netdef.h" />
+    <ClInclude Include="..\inc\netfilter.h" />
+    <ClInclude Include="..\inc\networkio.h" />
+    <ClInclude Include="KCPClient.h" />
+    <ClInclude Include="kcpinc.h" />
+    <ClInclude Include="KCPReadThread.h" />
+    <ClInclude Include="KCPServer.h" />
+    <ClInclude Include="KCPThread.h" />
+    <ClInclude Include="KCPWriteThread.h" />
+    <ClInclude Include="Session.h" />
+    <ClInclude Include="SocketStatus.h" />
+    <ClInclude Include="TCPReadThread.h" />
+    <ClInclude Include="UdxTcpHandler.h" />
+    <ClInclude Include="UdxTcpSession.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Expat\src\lib\expat_static.vcxproj">
+      <Project>{ae6ea505-137d-40a4-8a40-33c8a7895b9e}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\V2_Http\src\V2_Http.vcxproj">
+      <Project>{9375000f-3f5b-4e24-98b3-661bb4d8346f}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Xml\src\libjudo.vcxproj">
+      <Project>{55d73a77-23c4-4e3d-a174-6c474f7eb626}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

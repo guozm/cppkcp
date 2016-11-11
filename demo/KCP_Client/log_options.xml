@@ -1,0 +1,9 @@
+<xml>
+    <path>log</path>
+    <KCPClient>
+        <level>5</level>
+        <basename>KCPClient</basename>
+        <size>1024</size>
+    </KCPClient>
+</xml>
+

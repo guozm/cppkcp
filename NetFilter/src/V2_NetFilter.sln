@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "netfilter", "V2_NetFilter.vcproj", "{7F63C13F-992E-4F75-83E6-BC032AB01EDD}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "demo", "demo\demo.vcproj", "{15477505-3812-4473-BD21-DD576BC50D66}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7F63C13F-992E-4F75-83E6-BC032AB01EDD}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7F63C13F-992E-4F75-83E6-BC032AB01EDD}.Debug|Win32.Build.0 = Debug|Win32
+		{7F63C13F-992E-4F75-83E6-BC032AB01EDD}.Release|Win32.ActiveCfg = Release|Win32
+		{7F63C13F-992E-4F75-83E6-BC032AB01EDD}.Release|Win32.Build.0 = Release|Win32
+		{15477505-3812-4473-BD21-DD576BC50D66}.Debug|Win32.ActiveCfg = Debug|Win32
+		{15477505-3812-4473-BD21-DD576BC50D66}.Debug|Win32.Build.0 = Debug|Win32
+		{15477505-3812-4473-BD21-DD576BC50D66}.Release|Win32.ActiveCfg = Release|Win32
+		{15477505-3812-4473-BD21-DD576BC50D66}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
